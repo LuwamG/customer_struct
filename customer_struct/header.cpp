@@ -8,10 +8,10 @@ int main() {
     cin >> customer.number;
 
     if (customer.isValid()) {//check if entered number is valid
-        cout << "The customer number is valid." << std::endl;
+        cout << "The customer number is valid." << endl;
     }
     else {
-        cout << "The customer number is invalid." << std::endl;
+        cout << "The customer number is invalid." << endl;
     }
 
     return 0;
