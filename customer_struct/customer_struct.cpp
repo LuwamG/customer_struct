@@ -1,18 +1,30 @@
+
+
 #include <iostream>
 using namespace std;
-// main to let user create customer number
-int main() {
-    CustomerNumber customer;
-
-    cout << "Enter your prefered customer number (format: AA1234): ";
-    cin >> customer.number;
-
-    if (customer.isValid()) {//check if entered number is valid
-        cout << "The customer number is valid." << std::endl;
-    }
-    else {
-        cout << "The customer number is invalid." << std::endl;
+#include "customer_struct.hpp"
+#include <cctype> 
+//Function to check the characters
+bool CustomerNumber::isValid() const {
+    if (number.length() != 6) {
+        return false; // Length must be exactly 6
     }
 
-    return 0;
+    // Checking the first two characters are alphabetic
+    for (int i = 0; i < 2; ++i) {
+        if (!std::isalpha(number[i])) {
+            return false;
+        }
+    }
+
+    // Checking the last four characters are digits
+    for (int i = 2; i < 6; ++i) {
+        if (!std::isdigit(number[i])) {
+            return false; // Not a digit
+        }
+    }
+
+    return true;
 }
+
+
